@@ -21,7 +21,7 @@
             }
         ?>
     </ul>
-    <form action="index.php" method="post">
+    <form action="listaConBD.php" method="post">
         <label for="nombre">Nombre</label>
         <input type="text" name="nombre" id="nombre">
         <input type="submit" value="Enviar">

@@ -1,8 +1,8 @@
 <?php
-$servername = "database-1.czxapucafvwz.us-east-1.rds.amazonaws.com ";
-$username = "admin";
-$password = "potolo123";
-$database = "listas";
+$servername = "mysql";
+$username = "root";
+$password = "root";
+$database = "demo";
 
 // Crear conexión
 $conn = new mysqli($servername, $username, $password, $database);
