@@ -1,15 +1,17 @@
 <?php
+$servername = "database-1.czxapucafvwz.us-east-1.rds.amazonaws.com ";
+$username = "admin";
+$password = "potolo123";
+$database = "listas";
 
-$servidorDB = "database-1.czxapucafvwz.us-east-1.rds.amazonaws.com";
-$usuarioDB = "admin";
-$passwordDB = "potolo123";
-$nombreDB = "lista";
+// Crear conexión
+$conn = new mysqli($servername, $username, $password, $database);
 
-$conn = new mysqli($servidorDB, $usuarioDB, $passwordDB, $nombreDB);
-if ($conn->connect_errno) {
-   die("error de conexión: " . $mysqli->connect_error);
+// Verificar conexión
+if ($conn->connect_error) {
+    die("Error de conexión: " . $conn->connect_error);
 }
-
+// Realizar operaciones con la base de datos aquí
 function insertaProducto($conn, $nombre) {
    $sql = "INSERT INTO productos (nombre) VALUES ('$nombre')";
    $conn->query($sql);
@@ -20,5 +22,3 @@ function buscaProductos($conn){
     $result = $conn->query($sql);
     return $result;
 }
-
-?>

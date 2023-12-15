@@ -6,9 +6,25 @@
     <title>Document</title>
 </head>
 <body>
-    <form action="listaConBD.php" method="get">
-        <input type="text">
-        <button>Insertar</button>
+    <?php
+        include("conexion.php");
+        if(isset($_POST["nombre"])) {
+            insertaProducto($conn, $_POST["nombre"]);
+        }
+        $productos = buscaProductos($conn);
+    ?>
+    <h1>Productos</h1>
+    <ul>
+        <?php
+            while($producto = $productos->fetch_assoc()) {
+                echo "<li>" . $producto["nombre"] . "</li>";
+            }
+        ?>
+    </ul>
+    <form action="index.php" method="post">
+        <label for="nombre">Nombre</label>
+        <input type="text" name="nombre" id="nombre">
+        <input type="submit" value="Enviar">
     </form>
 </body>
 </html>
